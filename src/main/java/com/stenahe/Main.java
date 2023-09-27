@@ -1,12 +1,18 @@
 package com.stenahe;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Main {
     public static void main(String[] args) {
-        Doctor doctor = new Doctor("Degree");
-        Nurse nurse = new Nurse();
 
-        System.out.println(doctor.getQualification());
-        doctor.assist();
-        nurse.assist();
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("spring.xml");
+
+        Staff staff = context.getBean(Doctor.class);
+        staff.assist();
+
+        Staff staff2 = context.getBean(Nurse.class);
+        staff2.assist();
     }
 }
