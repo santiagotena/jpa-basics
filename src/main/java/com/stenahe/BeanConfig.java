@@ -12,5 +12,4 @@ public class BeanConfig {
     public Doctor doctor() {
         return new Doctor();
     }
-
 }
